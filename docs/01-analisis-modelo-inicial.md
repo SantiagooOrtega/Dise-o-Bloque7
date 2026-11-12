@@ -40,12 +40,12 @@ Una **composición** implica que la parte no existe sin el todo y que comparten 
 
 ## 5. Observaciones al modelo inicial
 
-Diagrama de clases inicial con las observaciones numeradas:
-
 ![Diagrama inicial anotado](diagramas/00-diagrama-inicial-anotado.png)
 
-
-1. **`GestorPrestamos` es una clase "Dios"**: concentra la búsqueda de datos, la validación, la creación del préstamo y (implícitamente) la persistencia. Se reparte entre `PrestamoController` (HTTP), `PrestamoService` (coordinación del caso de uso) y los repositorios (datos).
-2. **`setDisponible(boolean)` público rompe R3**: cualquier clase podría volver a poner un libro disponible o prestar un libro ya prestado sin validar. Se sustituye por `Libro.marcarPrestado()`, que valida y cambia el estado en un solo paso (encapsulamiento).
-3. **`Prestamo` duplica estudiante y libro**: aparecen como atributo (p. ej. `idEstudiante`, `idLibro`) **y** como asociación. Es redundante y puede volverse inconsistente; se deja solo la asociación (referencias a objetos, mapeadas con `@ManyToOne`).
-4. **Asociaciones sin navegabilidad**: no se indica quién conoce a quién. Se define navegabilidad **Prestamo → Estudiante** y **Prestamo → Libro**; ni Libro ni Estudiante necesitan conocer sus préstamos para este caso de uso.
+1. **GestorPrestamos es una clase "Dios"**: mezcla coordinación, validación y almacenamiento (listas en memoria). Tiene baja cohesión y viola el principio de responsabilidad única (SRP).
+2. **registrarPrestamo(e, l) recibe entidades ya cargadas**: no valida la disponibilidad (R1), no sabe de HTTP ni de la base de datos, y no tiene manejo de errores (R4).
+3. **Tres asociaciones (1 a 0..\*) desde el gestor**: el gestor "posee" las colecciones; la relación real en la base de datos es a través de Prestamo. El gestor no es un concepto del dominio.
+4. **Libro.setDisponible() es público** y permite romper R3 desde fuera; marcarPrestado() no valida R1. La regla debe vivir dentro de Libro.
+5. **Prestamo repite estudiante y libro** como atributos y también como asociaciones: hay redundancia. Deben mostrarse una sola vez, como extremo de asociación.
+6. **Las asociaciones "historial" (1 a 0..\*) no indican navegabilidad**: Estudiante y Libro no guardan lista de préstamos. Deben ser asociaciones dirigidas Prestamo -> Estudiante y Prestamo -> Libro.
+7. **Los getters y setters de id y atributos** ocupan espacio sin aportar responsabilidades, y faltan Controller, Service, Repository, DTO y excepciones.

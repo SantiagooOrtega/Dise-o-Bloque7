@@ -1,5 +1,7 @@
 # 02 · Tabla de responsabilidades
 
+**Integrantes:** Santiago Ortega Bolaños y Johan Mosquera Montilla
+
 | Operación | Clase responsable | Justificación |
 |---|---|---|
 | Recibir `POST /api/prestamos` | `PrestamoController` | Es el punto de entrada HTTP: deserializa el JSON a `PrestamoRequest`, valida el formato con `@Valid` y delega. No contiene reglas de negocio. |

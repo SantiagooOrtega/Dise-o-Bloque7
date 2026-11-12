@@ -1,5 +1,7 @@
 # 04 · Explicación de decisiones
 
+**Integrantes:** Santiago Ortega Bolaños y Johan Mosquera Montilla
+
 ## Decisiones principales
 
 1. **Tres capas con dependencias en un solo sentido** (Controller → Service → Repository). Cada capa cambia por una sola razón: HTTP, reglas del caso de uso o tecnología de persistencia.

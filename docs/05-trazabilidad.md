@@ -1,5 +1,7 @@
 # 05 · Matriz de trazabilidad
 
+**Integrantes:** Santiago Ortega Bolaños y Johan Mosquera Montilla
+
 | Requisito | Clase | Operación | Prueba |
 |---|---|---|---|
 | **R1** Solo un libro disponible puede prestarse | `Libro` (coordinado por `PrestamoService`) | `marcarPrestado()` lanza `LibroNoDisponibleException` → 409 | `LibroTest.libroNoDisponibleLanzaExcepcion`, `PrestamoServiceTest.libroNoDisponibleNoGuarda`, `PrestamoControllerIT.libroYaPrestado` |

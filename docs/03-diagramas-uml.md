@@ -1,5 +1,7 @@
 # 03 · Diagramas UML
 
+**Integrantes:** Santiago Ortega Bolaños y Johan Mosquera Montilla
+
 > Los diagramas se elaboran en **Visual Paradigm** y se exportan como PNG a `docs/diagramas/`.
 
 ## 1. Diagrama de clases por capas

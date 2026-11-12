@@ -1,5 +1,7 @@
 # 06 · Evidencias de pruebas
 
+**Integrantes:** Santiago Ortega Bolaños y Johan Mosquera Montilla
+
 Todas las salidas de este documento son **reales**, obtenidas el 2026-11-11 ejecutando el proyecto en local (Java 21.0.10, Maven 3.9.15, Spring Boot 3.5.7).
 
 ## 1. Pruebas automáticas (`mvn -B test`)
@@ -19,9 +21,9 @@ Resumen extraído de la salida de Maven:
 
 | Clase de prueba | Tipo | Pruebas | Resultado |
 |---|---|---|---|
-| `LibroTest` | Unitaria de dominio (sin Spring) | 2 | ✅ |
-| `PrestamoServiceTest` | Unitaria con Mockito | 4 | ✅ |
-| `PrestamoControllerIT` | Integración (MockMvc + H2) | 7 | ✅ |
+| `LibroTest` | Unitaria de dominio (sin Spring) | 2 | Aprobada |
+| `PrestamoServiceTest` | Unitaria con Mockito | 4 | Aprobada |
+| `PrestamoControllerIT` | Integración (MockMvc + H2) | 7 | Aprobada |
 | **Total** | | **13** | **BUILD SUCCESS** |
 
 ## 2. Pruebas manuales con `curl` (aplicación en ejecución)
@@ -30,12 +32,12 @@ La aplicación se arrancó con `mvn spring-boot:run` (puerto 8080) y los escenar
 
 | # | Escenario | Código esperado | Código obtenido |
 |---|---|---|---|
-| 1 | Libro disponible | 201 | 201 ✅ |
-| 2 | Libro ya prestado | 409 | 409 ✅ |
-| 3 | Estudiante inexistente | 404 | 404 ✅ |
-| 4 | Libro inexistente | 404 | 404 ✅ |
-| 5 | Consultar préstamos | 200 | 200 ✅ |
-| 6 | Solicitud inválida `{}` | 400 | 400 ✅ |
+| 1 | Libro disponible | 201 | 201 |
+| 2 | Libro ya prestado | 409 | 409 |
+| 3 | Estudiante inexistente | 404 | 404 |
+| 4 | Libro inexistente | 404 | 404 |
+| 5 | Consultar préstamos | 200 | 200 |
+| 6 | Solicitud inválida `{}` | 400 | 400 |
 
 ### 1. Libro disponible (estudiante 1, libro 2)
 ```

@@ -1,5 +1,12 @@
 # SmartLibrary — Taller práctico bloque 7
 
+**Asignatura:** Diseño de Software
+
+**Integrantes:**
+
+- Santiago Ortega Bolaños
+- Johan Mosquera Montilla
+
 API REST con **Spring Boot** que transforma el modelo de clases OO de SmartLibrary en un diseño por **tres capas** (Controller → Service → Repository). Implementa el caso de uso **«Registrar préstamo»** y la **consulta de préstamos**, con persistencia en **H2 en memoria**.
 
 ## Reglas de negocio

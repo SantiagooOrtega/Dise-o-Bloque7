@@ -1,5 +1,7 @@
 # 01 · Análisis del modelo inicial (Actividad 1)
 
+**Integrantes:** Santiago Ortega Bolaños y Johan Mosquera Montilla
+
 ## 1. Datos y operaciones del dominio
 
 | Clase | Datos | Operaciones |

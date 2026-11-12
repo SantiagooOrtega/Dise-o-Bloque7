@@ -6,8 +6,6 @@
 
 ![Diagrama de clases por capas](diagramas/vp-clases-capas.png)
 
-> ⚠️ **Pendiente de exportar desde Visual Paradigm** (`docs/diagramas/vp-clases-capas.png`).
-
 ### Justificación de las relaciones
 
 | Relación | Tipo UML | Justificación |
@@ -26,8 +24,6 @@ Dirección obligatoria: **Controller → Service → Repository**. No existe nin
 ## 2. Diagrama de secuencia «Registrar préstamo»
 
 ![Diagrama de secuencia](diagramas/vp-secuencia-prestamo.png)
-
-> ⚠️ **Pendiente de exportar desde Visual Paradigm** (`docs/diagramas/vp-secuencia-prestamo.png`).
 
 ### Tabla mensaje → operación
 

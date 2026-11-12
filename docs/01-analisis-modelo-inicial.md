@@ -40,6 +40,11 @@ Una **composición** implica que la parte no existe sin el todo y que comparten 
 
 ## 5. Observaciones al modelo inicial
 
+Diagrama de clases inicial con las observaciones numeradas:
+
+![Diagrama inicial anotado](diagramas/00-diagrama-inicial-anotado.png)
+
+
 1. **`GestorPrestamos` es una clase "Dios"**: concentra la búsqueda de datos, la validación, la creación del préstamo y (implícitamente) la persistencia. Se reparte entre `PrestamoController` (HTTP), `PrestamoService` (coordinación del caso de uso) y los repositorios (datos).
 2. **`setDisponible(boolean)` público rompe R3**: cualquier clase podría volver a poner un libro disponible o prestar un libro ya prestado sin validar. Se sustituye por `Libro.marcarPrestado()`, que valida y cambia el estado en un solo paso (encapsulamiento).
 3. **`Prestamo` duplica estudiante y libro**: aparecen como atributo (p. ej. `idEstudiante`, `idLibro`) **y** como asociación. Es redundante y puede volverse inconsistente; se deja solo la asociación (referencias a objetos, mapeadas con `@ManyToOne`).
